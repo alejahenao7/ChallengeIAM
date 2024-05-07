@@ -8,7 +8,7 @@ from googleApi import enviar_correo
 from googleApi import obtener_archivos
 
 def main():
-  #Conexión a la base de datos usando el archivo dbconenection.py
+  #Conexión a la base de datos usando el archivo dbconnection.py
   db_connection = create_connection()
   if db_connection.is_connected():
     sqlconnection = db_connection.cursor()
@@ -69,7 +69,7 @@ def main():
         except HttpError as error:
           print(f"No tienes permisos sobre el archivo {item['name']} para cambiarlo a privado")
         # Definir los detalles del correo electrónico
-        destinatario = 'dajmunozos@gmail.com'
+        destinatario = OwnerEmail
         asunto = 'Archivo público en Google Drive'
         mensaje = f'El archivo {item['name']} tienen visibilidad publica en google drive, por favor cambiarlo a privado'
         
